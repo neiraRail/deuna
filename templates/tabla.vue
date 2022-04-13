@@ -111,10 +111,10 @@
     data: () => ({
       dialog: false,
       dialogDelete: false,
-      //headers: [{text: '$_propiedad', value: '$_propiedad'}]
-      $_Encabezados,
+      //[{text: '$_propiedad', value: '$_propiedad'}]
+      headers: $_Encabezados,
       //items: []
-      $_NombreItems,
+      $_NombreItems: [],
       editedIndex: -1,
       //{name: '', foo: '', bar: ''}
       editedItem: $_ItemDefault,
