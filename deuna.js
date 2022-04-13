@@ -33,6 +33,7 @@ const model= {
 const plantilla_path = "templates/tabla.vue"
 let planilla_text = fs.readFileSync(plantilla_path, {encoding: "utf8"})
 planilla_text = reemplazador.reemplazarTitulo(planilla_text, model.nombre)
+planilla_text = reemplazador.reemplazarNombreItems(planilla_text, model.nombre)
 
 
 //Escribir en un archivo
