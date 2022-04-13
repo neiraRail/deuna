@@ -27,7 +27,7 @@ class Extractor {
         let listareturn = []
         for (let item of lista){
             listareturn.push({
-                nombre: item[0].split(" ")[2].split("()")[0],
+                nombre: item[0].split(" ")[2].split("()")[0].split("get")[1],
                 tipo: item[0].split(" ")[1]
             })
         }
