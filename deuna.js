@@ -29,10 +29,10 @@ const model= {
 console.log(model)
 
 
-// //Escribir en un archivo
-// fs.writeFile('exports/NombreClase.txt', content[0], (err) => {
-//     if (err) {
-//         console.error(err)
-//         return
-//     }
-// })
+//Escribir en un archivo
+fs.writeFile('exports/Modelo.txt', JSON.stringify(model), (err) => {
+    if (err) {
+        console.error(err)
+        return
+    }
+})
