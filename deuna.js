@@ -10,9 +10,20 @@ if(!validar_java_class(java_class_text)){
     throw Error("No se validó la clase")
 }
 
-console.log(extractor.extraer_getters(java_class_text))
+//Extraer datos
+const nombre = extractor.extraer_clase_nombre(java_class_text)
+const propiedades = extractor.extraer_propiedades(java_class_text)
+const getters = extractor.extraer_getters(java_class_text)
 
 
+const model= {
+    nombre: nombre,
+    propiedades: propiedades,
+    getters: getters,
+    endpoint: 'api/'+nombre
+}
+
+console.log(model)
 //Validar una clase de java + Springboot
 function validar_java_class(text){
     return text.length>0

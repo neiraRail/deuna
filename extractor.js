@@ -4,7 +4,8 @@ class Extractor {
     }
 
     extraer_clase_nombre(text){
-        return text.match(/public class [A-Z][a-z0-9]*\s*{/)[0]
+        const match = text.match(/public class [A-Z][a-z0-9]*\s*{/)[0]
+        return match.split(/class /)[1].split(/ {/)[0]
     }
 
     extraer_propiedades(text){
@@ -12,7 +13,10 @@ class Extractor {
         const lista = text.matchAll(regex);
         let listareturn = []
         for (let item of lista){
-            listareturn.push(item[0])
+            listareturn.push({
+                nombre: item[0].split(" ")[2].split(";")[0],
+                tipo: item[0].split(" ")[1]
+            })
         }
         return listareturn
     }
@@ -22,7 +26,10 @@ class Extractor {
         const lista = text.matchAll(regex);
         let listareturn = []
         for (let item of lista){
-            listareturn.push(item[0])
+            listareturn.push({
+                nombre: item[0].split(" ")[2].split("()")[0],
+                tipo: item[0].split(" ")[1]
+            })
         }
         return listareturn
     }
