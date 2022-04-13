@@ -15,6 +15,7 @@ class Extractor {
         for (let item of lista){
             listareturn.push({
                 nombre: item[0].split(" ")[2].split(";")[0],
+                label: item[0].split(" ")[2].split(";")[0].replace(/([A-Z])/g, ' $1').trim(),
                 tipo: item[0].split(" ")[1]
             })
         }
