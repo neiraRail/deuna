@@ -36,6 +36,8 @@ planilla_text = reemplazador.reemplazarTitulo(planilla_text, model.nombre)
 planilla_text = reemplazador.reemplazarNombreItems(planilla_text, model.nombre)
 planilla_text = reemplazador.reemplazarOrdenarPor(planilla_text, "nroFolio")
 planilla_text = reemplazador.insertarCamposFormulario(planilla_text, model.propiedades)
+planilla_text = reemplazador.insertarEncabezados(planilla_text, model.getters)
+planilla_text = reemplazador.insertarItemDefault(planilla_text, model.propiedades)
 
 
 //Escribir en un archivo

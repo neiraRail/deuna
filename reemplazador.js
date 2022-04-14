@@ -47,11 +47,30 @@ module.exports = class Reemplazador {
     }
 
     insertarEncabezados(text, getters){
-
+        let encabezados = "[\n"
+        let nroEspacios = (text.match(/\n\s*headers:/)[0].match(/\s/g) || []).length
+        for(let getter of getters){
+            let item = ' '.repeat(nroEspacios)
+            item += "\t{text: '$_propLabel', value: '$_propVariable'},\n"
+            item = item.replace("$_propLabel", getter.label)
+            item = item.replace("$_propVariable", getter.nombre)
+            encabezados+=item
+        }
+        encabezados+=' '.repeat(nroEspacios - 1) + "]"
+        return text.replace("$_Encabezados", encabezados)
     }
 
     insertarItemDefault(text, propiedades){
-
+        let defaultItem = "{\n"
+        let nroEspacios = (text.match(/\n\s*(edited|default)Item: \$_ItemDefault/)[0].match(/\s/g) || ['']).length
+        for(let prop of propiedades){
+            defaultItem += ' '.repeat(nroEspacios)
+            defaultItem += "$_prop: '',\n"
+            defaultItem = defaultItem.replace("$_prop", prop.nombre)
+        }
+        defaultItem += ' '.repeat(nroEspacios - 2)
+        defaultItem += "}"
+        return text.replace(/\$_ItemDefault/g, defaultItem)
     }
 
     
