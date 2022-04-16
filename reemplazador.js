@@ -33,7 +33,7 @@ module.exports = class Reemplazador {
             let col = ""
             col += "<v-col cols=\"12\" sm=\"6\" md=\"4\">\n"
             col += ' '.repeat(nroEspacios)
-            col += "\t<v-text-field v-model=\"editedItem.$_propVariable\" label=\"$_propLabel\">"
+            col += "  <v-text-field v-model=\"editedItem.$_propVariable\" label=\"$_propLabel\">"
             col += "</v-text-field>\n"
             col += ' '.repeat(nroEspacios)
             col += "</v-col>\n"
@@ -51,7 +51,7 @@ module.exports = class Reemplazador {
         let nroEspacios = (text.match(/\n\s*headers:/)[0].match(/\s/g) || []).length
         for(let getter of getters){
             let item = ' '.repeat(nroEspacios)
-            item += "\t{text: '$_propLabel', value: '$_propVariable'},\n"
+            item += "  {text: '$_propLabel', value: '$_propVariable'},\n"
             item = item.replace("$_propLabel", getter.label)
             item = item.replace("$_propVariable", getter.nombre)
             encabezados+=item
